@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    align-items: center;
+    background: #23242a;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+h1 {
+    -webkit-text-stroke: 0.3vw #383d52;
+    color: #252839;
+    font-size: 7vw;
+    position: relative;
+    text-shadow: #ff7f50 5px 10px 20px;
+    text-transform: uppercase;
+}
+
+h1::before {
+    animation: animate 6s linear infinite;
+    background:  linear-gradient(to bottom,  #e3d31f, #f88221);
+    border-right: 4px solid #01fe87;
+    content: attr(data-text);
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+
+@keyframes animate {
+    0%,10%,100% {
+       width: 0; 
+    }
+
+    70%,80%,90% {
+        width: 100%;
+    }
+}
+
+.box {
+    background: #1c1c1c;
+    border-radius: 8px;
+    min-height: 420px;
+    min-width: 300px;
+    overflow: hidden;
+    position: relative; 
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 300px;
+    height: 420px;
+    background:linear-gradient(#e3d31f, #f88221);
+    transform-origin: bottom right;
+    animation: animateBx 6s linear infinite;
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 300px;
+    height: 420px;
+    background: linear-gradient(to bottom, #22e31f, #0faef2); 
+    transform-origin: bottom right;
+    animation: animateBx 6s linear infinite;
+    animation-delay: -3s;
+}
+
+@keyframes animateBx {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.form {
+    background: #28292d;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    inset: 4px;
+    padding: 50px 40px;
+    position: absolute;
+    z-index: 10;
+}
+
+.form h2 {
+    color: #22e31f;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.inputBox {
+    margin-top: 35px;
+    position: relative;
+    width: 240px;
+}
+
+.inputBox input {
+    background: transparent;
+    border: none;
+    color: #23242a;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    outline: none;
+    padding: 20px 10px 10px;
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}
+
+.inputBox span {
+    color: #8f8f8f;
+    font-size: 1em;
+    left: 0;
+    letter-spacing: 0.05em;
+    padding: 20px 10px 10px;
+    pointer-events: none;
+    position: absolute;
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
+    color: #22e31f;
+    font-size: 0.75em;
+    transform: translateX(0px) translateY(-34px);
+}
+
+.inputBox i {
+    background: #f88221;
+    border-radius: 4px;
+    bottom: 0;
+    height: 2px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: 0.5s;
+    width: 100%;
+    z-index: 9;
+}
+
+.inputBox input:valid ~ i,
+.inputBox input:focus ~ i {
+    height: 44px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a {
+    color: #8f8f8f;
+    font-size: 0.75em;
+    margin: 10px 0;
+    text-decoration: none;
+}
+
+.links a:hover, 
+.links a:nth-child(2) {
+    color: #22e31f
+}
+
+button {
+    background: #22e31f;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    outline: none;
+    padding: 11px 25px;
+    width: 100px; 
+}
+
+input[type="submit"]:active {
+    opacity: 0.8;
+}
